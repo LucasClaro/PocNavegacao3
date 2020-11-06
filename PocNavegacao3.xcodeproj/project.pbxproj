@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B615446B25532F0D008019D7 /* PixelArtModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B615446A25532F0D008019D7 /* PixelArtModel.swift */; };
+		B615446F25533784008019D7 /* PixelArtViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B615446E25533784008019D7 /* PixelArtViewModel.swift */; };
+		B615447225547B2A008019D7 /* AddAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B615447125547B2A008019D7 /* AddAlbum.swift */; };
+		B615447625548454008019D7 /* addAlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B615447525548454008019D7 /* addAlbumViewModel.swift */; };
+		B61544792555BF20008019D7 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61544782555BF20008019D7 /* Home.swift */; };
+		B615447C2555C386008019D7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B615447B2555C386008019D7 /* HomeViewModel.swift */; };
 		B61D9D982551F40200EF6167 /* PocNavegacao3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61D9D972551F40200EF6167 /* PocNavegacao3App.swift */; };
 		B61D9D9A2551F40200EF6167 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61D9D992551F40200EF6167 /* ContentView.swift */; };
 		B61D9D9C2551F40400EF6167 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61D9D9B2551F40400EF6167 /* Assets.xcassets */; };
@@ -14,6 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B615446A25532F0D008019D7 /* PixelArtModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelArtModel.swift; sourceTree = "<group>"; };
+		B615446E25533784008019D7 /* PixelArtViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelArtViewModel.swift; sourceTree = "<group>"; };
+		B615447125547B2A008019D7 /* AddAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlbum.swift; sourceTree = "<group>"; };
+		B615447525548454008019D7 /* addAlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addAlbumViewModel.swift; sourceTree = "<group>"; };
+		B61544782555BF20008019D7 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		B615447B2555C386008019D7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B61D9D942551F40200EF6167 /* PocNavegacao3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocNavegacao3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61D9D972551F40200EF6167 /* PocNavegacao3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocNavegacao3App.swift; sourceTree = "<group>"; };
 		B61D9D992551F40200EF6167 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,10 +65,16 @@
 			isa = PBXGroup;
 			children = (
 				B61D9D972551F40200EF6167 /* PocNavegacao3App.swift */,
+				B615446A25532F0D008019D7 /* PixelArtModel.swift */,
 				B61D9D992551F40200EF6167 /* ContentView.swift */,
+				B615446E25533784008019D7 /* PixelArtViewModel.swift */,
+				B61544782555BF20008019D7 /* Home.swift */,
+				B615447B2555C386008019D7 /* HomeViewModel.swift */,
 				B61D9D9B2551F40400EF6167 /* Assets.xcassets */,
 				B61D9DA02551F40400EF6167 /* Info.plist */,
 				B61D9D9D2551F40400EF6167 /* Preview Content */,
+				B615447125547B2A008019D7 /* AddAlbum.swift */,
+				B615447525548454008019D7 /* addAlbumViewModel.swift */,
 			);
 			path = PocNavegacao3;
 			sourceTree = "<group>";
@@ -139,7 +157,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B61D9D9A2551F40200EF6167 /* ContentView.swift in Sources */,
+				B615446B25532F0D008019D7 /* PixelArtModel.swift in Sources */,
 				B61D9D982551F40200EF6167 /* PocNavegacao3App.swift in Sources */,
+				B615447C2555C386008019D7 /* HomeViewModel.swift in Sources */,
+				B615446F25533784008019D7 /* PixelArtViewModel.swift in Sources */,
+				B615447625548454008019D7 /* addAlbumViewModel.swift in Sources */,
+				B615447225547B2A008019D7 /* AddAlbum.swift in Sources */,
+				B61544792555BF20008019D7 /* Home.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
