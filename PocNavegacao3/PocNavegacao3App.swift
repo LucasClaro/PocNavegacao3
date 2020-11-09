@@ -11,7 +11,8 @@ import SwiftUI
 struct PocNavegacao3App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(pixelArtViewModel: PixelArtViewModel())
+            let viewModel = PixelArtViewModel()
+            ContentView().environmentObject(viewModel)
         }
     }
 }

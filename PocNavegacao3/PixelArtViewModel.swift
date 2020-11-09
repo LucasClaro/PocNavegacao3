@@ -7,14 +7,40 @@
 
 import SwiftUI
 
+public enum Tab: Hashable{
+    case home, album
+}
+
 struct navegacao {
+    
     var pixelArts = [PixelArt]()
     
-    var salvandoEmAlbum: Bool = false
+    private var selectedTab: Tab = .home
+    var tabSelecionada: Tab {
+        get {
+            return selectedTab
+        }
+        set {
+            PXSalvando = nil
+            selectedTab = newValue
+        }
+    }
+    
+    private var PXSalvando : String?
+    var salvandoEmAlbum: String? {
+        set{
+            selectedTab = .album
+            PXSalvando = newValue
+        }
+        get{
+            return PXSalvando
+        }
+    }
+    
 }
 
 class PixelArtViewModel : ObservableObject {
     
-    @Published private var nav = navegacao()
+    @Published var nav = navegacao()
     
 }

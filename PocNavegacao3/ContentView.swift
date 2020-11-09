@@ -16,60 +16,35 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var pixelArtViewModel = PixelArtViewModel()
+    @EnvironmentObject var pixelArtViewModel : PixelArtViewModel
     
     var body: some View {
     
         NavigationView {
-            TabView {
+            TabView (selection: $pixelArtViewModel.nav.tabSelecionada){
                 
                 Home()
+                    .tabItem{
+                        Image(systemName: "house")
+                    }
+                    .tag(Tab.home)
                 Galeria()
+                    .tabItem{
+                        Image(systemName: "folder")
+                    }
+                    .tag(Tab.album)
                 
             }
                 .navigationBarTitle("Teste")
                 .navigationBarItems(trailing:
                     Button(action:  {
-                        print("help")
+                        print("oi")
                     }) {
                         Image(systemName: "plus")
                     }
                 )
         }
     
-    }
-}
-
-struct Galeria : View {
-    var body: some View {
-        
-        let data = (1...9).map { "Álbum \($0)" }
-        
-        let columns = [
-            GridItem(.flexible(minimum: 40), spacing: 0),
-            GridItem(.flexible(minimum: 40))
-        ]
-        
-        ScrollView{
-            LazyVGrid(columns: columns, spacing: 0) {
-                
-                ForEach(data, id: \.self) { item in
-                    
-                    VStack(alignment: .leading) {
-                        Image("teste")
-                        Text(item)
-                            
-                    }
-                        .padding()
-                    
-                }
-                
-            }
-        }
-            .tabItem{
-                Image(systemName: "folder")
-            }
-        
     }
 }
 

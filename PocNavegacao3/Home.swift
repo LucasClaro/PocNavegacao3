@@ -9,6 +9,8 @@ import SwiftUI
 
 struct Home: View {
     
+    @EnvironmentObject var pixelArtViewModel : PixelArtViewModel
+    
     var body: some View{
         
         VStack{
@@ -45,7 +47,7 @@ struct Home: View {
                         Image("teste").resizable()
                             .aspectRatio(1, contentMode: .fill)
                             .contextMenu{
-                                contMenu()
+                                contMenu(texto : item)
                             }
                     }
                     
@@ -53,17 +55,16 @@ struct Home: View {
             }
             
         }
-            .tabItem{
-                Image(systemName: "house")
-            }
         
     } // body
     
-    func contMenu() -> some View {
+    func contMenu(texto : String) -> some View {
+        
         Group{
+            
             Button(action: {
                 
-                
+                pixelArtViewModel.nav.salvandoEmAlbum = texto
                 
             }) {
                 HStack{
