@@ -7,10 +7,19 @@
 
 import SwiftUI
 
-struct PixelArt{
-    var size: Int
-    var matriz = [[CGFloat]]()
+struct PixelArt: Identifiable{
+    
+    var id = UUID()
+    var name: String
+    //var size: Int
+    //var matriz = [[CGFloat]]()
     //var imageURL: URL?
     
-    
+    var album: Album.ID?
+
+}
+
+struct Album : Identifiable{
+    var id = UUID()
+    var name: String
 }

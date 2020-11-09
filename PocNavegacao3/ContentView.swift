@@ -35,12 +35,25 @@ struct ContentView: View {
                     .tag(Tab.album)
                 
             }
-                .navigationBarTitle("Teste")
+                .if(pixelArtViewModel.nav.AlbumAberto != nil) {
+                    $0
+                        .navigationBarTitle(pixelArtViewModel.nav.AlbumAberto!.name)
+                        .navigationBarTitleDisplayMode(.inline)
+                    
+                }
+                .if(pixelArtViewModel.nav.AlbumAberto == nil) {
+                    $0
+                        .navigationBarTitle("")
+                        .navigationBarTitleDisplayMode(.automatic)
+                    
+                }
                 .navigationBarItems(trailing:
                     Button(action:  {
                         print("oi")
+                        pixelArtViewModel.createFakeData()
                     }) {
                         Image(systemName: "plus")
+                            .font(.title)
                     }
                 )
         }

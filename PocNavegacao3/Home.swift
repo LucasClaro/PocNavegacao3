@@ -32,7 +32,7 @@ struct Home: View {
             }
                 .padding()
             
-            let data = (1...25).map { "Item \($0)" }
+//            let data = (1...25).map { "Item \($0)" }
             
             let columns = [
                 GridItem(.flexible(minimum: 40), spacing: 0),
@@ -43,11 +43,11 @@ struct Home: View {
             ScrollView{
                 LazyVGrid(columns: columns, spacing: 0) {
                     
-                    ForEach(data, id: \.self) { item in
+                    ForEach(pixelArtViewModel.nav.pixelArts) { item in
                         Image("teste").resizable()
                             .aspectRatio(1, contentMode: .fill)
                             .contextMenu{
-                                contMenu(texto : item)
+                                contMenu(texto : item.name)
                             }
                     }
                     
@@ -61,6 +61,8 @@ struct Home: View {
     func contMenu(texto : String) -> some View {
         
         Group{
+            
+            Text(texto)
             
             Button(action: {
                 
