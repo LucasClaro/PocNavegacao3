@@ -39,23 +39,39 @@ struct ContentView: View {
                     $0
                         .navigationBarTitle(pixelArtViewModel.nav.AlbumAberto!.name)
                         .navigationBarTitleDisplayMode(.inline)
-                    
+                        
+                        .navigationBarItems(
+                            leading:
+                                Button(action:  {
+                                pixelArtViewModel.exitAlbum()
+                            }) {
+                                Image(systemName: "chevron.left")
+                                    .font(.title)
+                            },
+                            trailing:
+                                Button(action:  {
+                                    print("oi")
+                                    pixelArtViewModel.createFakeData()
+                                }) {
+                                    Image(systemName: "plus")
+                                        .font(.title)
+                                }
+                        )
                 }
                 .if(pixelArtViewModel.nav.AlbumAberto == nil) {
                     $0
                         .navigationBarTitle("")
                         .navigationBarTitleDisplayMode(.automatic)
-                    
+                        .navigationBarItems(trailing:
+                            Button(action:  {
+                                print("oi")
+                                pixelArtViewModel.createFakeData()
+                            }) {
+                                Image(systemName: "plus")
+                                    .font(.title)
+                            }
+                        )
                 }
-                .navigationBarItems(trailing:
-                    Button(action:  {
-                        print("oi")
-                        pixelArtViewModel.createFakeData()
-                    }) {
-                        Image(systemName: "plus")
-                            .font(.title)
-                    }
-                )
         }
     
     }

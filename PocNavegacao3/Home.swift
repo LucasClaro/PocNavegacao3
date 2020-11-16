@@ -47,7 +47,7 @@ struct Home: View {
                         Image("teste").resizable()
                             .aspectRatio(1, contentMode: .fill)
                             .contextMenu{
-                                contMenu(texto : item.name)
+                                ContMenu(pixelArt: item)
                             }
                     }
                     
@@ -58,49 +58,6 @@ struct Home: View {
         
     } // body
     
-    func contMenu(texto : String) -> some View {
-        
-        Group{
-            
-            Text(texto)
-            
-            Button(action: {
-                
-                pixelArtViewModel.nav.salvandoEmAlbum = texto
-                
-            }) {
-                HStack{
-                    Text("Adicionar ao álbum")
-                    Spacer()
-                    Image(systemName: "folder")
-                }
-            }
-            
-            Button(action: {}) {
-                HStack{
-                    Text("Compartilhar")
-                    Spacer()
-                    Image(systemName: "square.and.arrow.up")
-                }
-            }
-            
-            Button(action: {}) {
-                HStack{
-                    Text("Editar")
-                    Spacer()
-                    Image(systemName: "pencil")
-                }
-            }
-            
-            Button(action: {}) {
-                HStack{
-                    Text("Excluir")
-                    Spacer()
-                    Image(systemName: "trash")
-                }
-            }
-        }
-    }
 } // struct
 
 //struct Home_Previews: PreviewProvider {

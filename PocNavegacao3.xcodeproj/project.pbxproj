@@ -12,6 +12,9 @@
 		B61544792555BF20008019D7 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61544782555BF20008019D7 /* Home.swift */; };
 		B61544802555E6AB008019D7 /* Galeria.swift in Sources */ = {isa = PBXBuildFile; fileRef = B615447F2555E6AB008019D7 /* Galeria.swift */; };
 		B61544862559DE59008019D7 /* IfViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61544852559DE59008019D7 /* IfViewModifier.swift */; };
+		B615448A255B216F008019D7 /* ContMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6154489255B216F008019D7 /* ContMenu.swift */; };
+		B615448E255B26A0008019D7 /* arrayModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B615448D255B26A0008019D7 /* arrayModifier.swift */; };
+		B61544AD255DBF87008019D7 /* AlertUIkitPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61544AC255DBF87008019D7 /* AlertUIkitPort.swift */; };
 		B61D9D982551F40200EF6167 /* PocNavegacao3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61D9D972551F40200EF6167 /* PocNavegacao3App.swift */; };
 		B61D9D9A2551F40200EF6167 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61D9D992551F40200EF6167 /* ContentView.swift */; };
 		B61D9D9C2551F40400EF6167 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61D9D9B2551F40400EF6167 /* Assets.xcassets */; };
@@ -24,6 +27,9 @@
 		B61544782555BF20008019D7 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		B615447F2555E6AB008019D7 /* Galeria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Galeria.swift; sourceTree = "<group>"; };
 		B61544852559DE59008019D7 /* IfViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfViewModifier.swift; sourceTree = "<group>"; };
+		B6154489255B216F008019D7 /* ContMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContMenu.swift; sourceTree = "<group>"; };
+		B615448D255B26A0008019D7 /* arrayModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arrayModifier.swift; sourceTree = "<group>"; };
+		B61544AC255DBF87008019D7 /* AlertUIkitPort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUIkitPort.swift; sourceTree = "<group>"; };
 		B61D9D942551F40200EF6167 /* PocNavegacao3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocNavegacao3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61D9D972551F40200EF6167 /* PocNavegacao3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocNavegacao3App.swift; sourceTree = "<group>"; };
 		B61D9D992551F40200EF6167 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,10 +74,13 @@
 				B61D9D992551F40200EF6167 /* ContentView.swift */,
 				B61544782555BF20008019D7 /* Home.swift */,
 				B615447F2555E6AB008019D7 /* Galeria.swift */,
+				B6154489255B216F008019D7 /* ContMenu.swift */,
 				B61D9D9B2551F40400EF6167 /* Assets.xcassets */,
 				B61D9DA02551F40400EF6167 /* Info.plist */,
 				B61D9D9D2551F40400EF6167 /* Preview Content */,
 				B61544852559DE59008019D7 /* IfViewModifier.swift */,
+				B615448D255B26A0008019D7 /* arrayModifier.swift */,
+				B61544AC255DBF87008019D7 /* AlertUIkitPort.swift */,
 			);
 			path = PocNavegacao3;
 			sourceTree = "<group>";
@@ -157,8 +166,11 @@
 				B61D9D9A2551F40200EF6167 /* ContentView.swift in Sources */,
 				B615446B25532F0D008019D7 /* PixelArtModel.swift in Sources */,
 				B61D9D982551F40200EF6167 /* PocNavegacao3App.swift in Sources */,
+				B61544AD255DBF87008019D7 /* AlertUIkitPort.swift in Sources */,
 				B615446F25533784008019D7 /* PixelArtViewModel.swift in Sources */,
 				B61544792555BF20008019D7 /* Home.swift in Sources */,
+				B615448A255B216F008019D7 /* ContMenu.swift in Sources */,
+				B615448E255B26A0008019D7 /* arrayModifier.swift in Sources */,
 				B61544802555E6AB008019D7 /* Galeria.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

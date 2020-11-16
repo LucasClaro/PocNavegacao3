@@ -29,12 +29,20 @@ struct navegacao {
         }
     }
     
+    private var AlAberto: Album?
+    var AlbumAberto: Album? {
+        set{
+            selectedTab = .album
+            AlAberto = newValue
+        }
+        get{
+            return AlAberto
+        }
+    }
     
-    var AlbumAberto: Album?
     
-    
-    private var PXSalvando : String?
-    var salvandoEmAlbum: String? {
+    private var PXSalvando : PixelArt?
+    var salvandoEmAlbum: PixelArt? {
         set{
             selectedTab = .album
             PXSalvando = newValue
@@ -43,6 +51,8 @@ struct navegacao {
             return PXSalvando
         }
     }
+    
+    var criandoAlbum : Bool = false
     
 }
 
@@ -65,4 +75,42 @@ class PixelArtViewModel : ObservableObject {
         nav.pixelArts.append(pixelart3)
     }
     
+    func exitAlbum() {
+        nav.AlbumAberto = nil
+    }
+    
+    func saveOrRemoveFromAlbum(pixelArt: PixelArt) {
+        if nav.tabSelecionada == .home {
+            
+            if pixelArt.album == nil{
+                //Caso esteja na home e a PX n tenha um álbum, leva pra tela de escolha do álbum
+                nav.salvandoEmAlbum = pixelArt
+                
+            } else {
+                
+                //Caso esteja na home e a PX já tenha um álbum, leva até esse álbum
+                guard let index = nav.albuns.firstIndex(where: { $0.id == pixelArt.album }) else { return }
+                nav.AlbumAberto = nav.albuns[index]
+            }
+            
+        } else {
+            
+            // Senão, remove o álbum da pixelArt selecionada
+            guard let index = nav.pixelArts.firstIndex(matching: pixelArt) else { return }
+            nav.pixelArts[index].album = nil
+        }
+    }
+    
+    func newAlbum(nome: String) -> Void {
+        
+    }
+    
+    func touchAlbum(album: Album) {
+        if nav.salvandoEmAlbum != nil {
+            guard let index = nav.pixelArts.firstIndex(matching: nav.salvandoEmAlbum!) else { return }
+            nav.pixelArts[index].album = album.id
+        }
+        nav.salvandoEmAlbum = nil
+        nav.AlbumAberto = album
+    }
 }
