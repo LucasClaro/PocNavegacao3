@@ -11,7 +11,7 @@ public enum Tab: Hashable{
     case home, album
 }
 
-struct navegacao {
+struct Navegacao {
     
     var pixelArts = [PixelArt]()
     
@@ -53,12 +53,13 @@ struct navegacao {
     }
     
     var criandoAlbum : Bool = false
+    var nomeAlbum : String = ""
     
 }
 
 class PixelArtViewModel : ObservableObject {
     
-    @Published var nav = navegacao()
+    @Published var nav = Navegacao()
     
     
     //MARK: Intents
@@ -101,8 +102,19 @@ class PixelArtViewModel : ObservableObject {
         }
     }
     
-    func newAlbum(nome: String) -> Void {
-        
+    func newAlbum() -> Void {
+        if nav.nomeAlbum != "" {
+            let al = Album(name: nav.nomeAlbum)
+            
+            guard let index = nav.pixelArts.firstIndex(matching: nav.salvandoEmAlbum!) else { return }
+            nav.pixelArts[index].album = al.id
+            
+            nav.albuns.append(al)
+            
+            nav.AlbumAberto = al
+            nav.salvandoEmAlbum = nil
+            nav.criandoAlbum = false
+        }
     }
     
     func touchAlbum(album: Album) {
@@ -111,6 +123,21 @@ class PixelArtViewModel : ObservableObject {
             nav.pixelArts[index].album = album.id
         }
         nav.salvandoEmAlbum = nil
+        nav.criandoAlbum = false
         nav.AlbumAberto = album
+    }
+    
+    func DeleteAlbum(album : Album) {
+        guard let index = nav.albuns.firstIndex(matching: album) else { return }
+        
+        let PXs = nav.pixelArts.filter {$0.album == album.id}
+        
+        for px in PXs {
+//            guard let i = nav.pixelArts.firstIndex(matching: px) else { return }
+//            nav.pixelArts[i].album = nil
+            saveOrRemoveFromAlbum(pixelArt: px)
+        }
+        
+        nav.albuns.remove(at: index)
     }
 }

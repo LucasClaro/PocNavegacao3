@@ -35,6 +35,22 @@ struct Galeria: View {
                     Divider()
                 }
                 
+                if (pixelArtViewModel.nav.criandoAlbum) {
+                    HStack {
+                        TextField("Nome: ", text: $pixelArtViewModel.nav.nomeAlbum)
+                        Spacer()
+                        Button(action: { pixelArtViewModel.newAlbum() }) {
+                            Text("Salvar")
+                        }
+                        Button(action: { withAnimation { pixelArtViewModel.nav.criandoAlbum = false } }) {
+                            Text("Cancelar")
+                                .foregroundColor(Color.red)
+                        }
+                    }
+                        .padding()
+                        
+                }
+                
                 //            let data = (1...9).map { "Álbum \($0)" }
                 
                 let columns = [
@@ -45,7 +61,7 @@ struct Galeria: View {
                 ScrollView{
                     LazyVGrid(columns: columns, spacing: 0) {
                         
-                        if (pixelArtViewModel.nav.salvandoEmAlbum != nil) {
+                        if (pixelArtViewModel.nav.salvandoEmAlbum != nil && !pixelArtViewModel.nav.criandoAlbum) {
                             VStack(alignment: .leading) {
                                 Image("teste")
                                 Text("Novo Álbum")
@@ -53,14 +69,11 @@ struct Galeria: View {
                             }
                                 .padding()
                                 .onTapGesture {
-                                    pixelArtViewModel.nav.criandoAlbum = true
+                                    withAnimation {
+                                        pixelArtViewModel.nav.criandoAlbum = true
+                                    }
                                 }
-                            .alert(isPresented: $pixelArtViewModel.nav.criandoAlbum) { () -> Alert in
-                                Alert(title: Text("Important message"), message: Text("Wear sunscreen"), dismissButton: .default(Text("Got it!")))
-
-                            }
-                                
-                            
+                           
                         }
                         
                         ForEach(pixelArtViewModel.nav.albuns) { item in
@@ -74,6 +87,15 @@ struct Galeria: View {
                                 pixelArtViewModel.touchAlbum(album: item)
                             }
                             .padding()
+                            .contextMenu() {
+                                Button(action: { pixelArtViewModel.DeleteAlbum(album: item) }){
+                                    HStack{
+                                        Text("Excluir Album")
+                                        Spacer()
+                                        Image(systemName: "Trash")
+                                    }
+                                }
+                            }
                             
                         }
                         
