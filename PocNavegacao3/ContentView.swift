@@ -63,17 +63,22 @@ struct ContentView: View {
                         .navigationBarTitle("")
                         .navigationBarTitleDisplayMode(.automatic)
                         .navigationBarItems(trailing:
-                            Button(action:  {
-                                print("oi")
-                                pixelArtViewModel.createFakeData()
-                            }) {
-                                Image(systemName: "plus")
-                                    .font(.title)
-                            }
+                            AddButton(destination: CustomController())
                         )
                 }
         }
     
+    }
+
+    
+    struct AddButton<Destination : View>: View {
+        var destination : Destination
+        
+        var body: some View {
+            NavigationLink(destination: self.destination) {
+                Image(systemName: "plus").font(.title)
+            }
+        }
     }
 }
 
