@@ -61,19 +61,33 @@ class PixelArtViewModel : ObservableObject {
     
     @Published var nav = Navegacao()
     
+    func fetch() {
+        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+            return
+        }
+        
+        let enumerator = FileManager.default.enumerator(atPath: directory.path!)
+        
+        while let filename = enumerator?.nextObject() as? String {
+            if filename.hasPrefix("draw") && filename.hasSuffix(".png") {
+                print(filename)
+            }
+        }
+    }
     
     //MARK: Intents
     
     func createFakeData(){
-        let album = Album(name: "Paisagens")
-        nav.albuns.append(album)
-        let pixelart = PixelArt(name: "Desenho")
-        nav.pixelArts.append(pixelart)
-        var pixelart2 = PixelArt(name: "Paisagem")
-        pixelart2.album = album.id
-        nav.pixelArts.append(pixelart2)
-        let pixelart3 = PixelArt(name: "Teste")
-        nav.pixelArts.append(pixelart3)
+//        let album = Album(name: "Paisagens")
+//        nav.albuns.append(album)
+//        let pixelart = PixelArt(name: "Desenho")
+//        nav.pixelArts.append(pixelart)
+//        var pixelart2 = PixelArt(name: "Paisagem")
+//        pixelart2.album = album.id
+//        nav.pixelArts.append(pixelart2)
+//        let pixelart3 = PixelArt(name: "Teste")
+//        nav.pixelArts.append(pixelart3)
+        fetch()
     }
     
     func exitAlbum() {

@@ -17,6 +17,7 @@ struct Home: View {
             
             Button(action: {
                 print("Tema")
+                pixelArtViewModel.createFakeData()
             }){
                 HStack{
                     Text("Ver desafio diário")
