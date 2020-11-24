@@ -25,7 +25,6 @@
 		B68339DA256C2DC600C1AF90 /* ColorMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68339D1256C2DC500C1AF90 /* ColorMenu.swift */; };
 		B68339DB256C2DC600C1AF90 /* grid.xib in Resources */ = {isa = PBXBuildFile; fileRef = B68339D2256C2DC500C1AF90 /* grid.xib */; };
 		B68339DC256C2DC600C1AF90 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68339D3256C2DC500C1AF90 /* UIViewExtension.swift */; };
-		B68339DD256C2DC600C1AF90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68339D4256C2DC500C1AF90 /* SceneDelegate.swift */; };
 		B68339E1256C2EA500C1AF90 /* CustomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68339E0256C2EA500C1AF90 /* CustomController.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +49,6 @@
 		B68339D1256C2DC500C1AF90 /* ColorMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorMenu.swift; sourceTree = "<group>"; };
 		B68339D2256C2DC500C1AF90 /* grid.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = grid.xib; sourceTree = "<group>"; };
 		B68339D3256C2DC500C1AF90 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		B68339D4256C2DC500C1AF90 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B68339E0256C2EA500C1AF90 /* CustomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,7 +116,6 @@
 				B68339D2256C2DC500C1AF90 /* grid.xib */,
 				B68339CD256C2DC500C1AF90 /* GridView.swift */,
 				B68339CC256C2DC500C1AF90 /* Main.storyboard */,
-				B68339D4256C2DC500C1AF90 /* SceneDelegate.swift */,
 				B68339D3256C2DC500C1AF90 /* UIViewExtension.swift */,
 				B68339D0256C2DC500C1AF90 /* ViewController.swift */,
 			);
@@ -204,7 +201,6 @@
 				B61D9D9A2551F40200EF6167 /* ContentView.swift in Sources */,
 				B615446B25532F0D008019D7 /* PixelArtModel.swift in Sources */,
 				B68339D6256C2DC600C1AF90 /* GridView.swift in Sources */,
-				B68339DD256C2DC600C1AF90 /* SceneDelegate.swift in Sources */,
 				B61D9D982551F40200EF6167 /* PocNavegacao3App.swift in Sources */,
 				B615446F25533784008019D7 /* PixelArtViewModel.swift in Sources */,
 				B68339D9256C2DC600C1AF90 /* ViewController.swift in Sources */,
