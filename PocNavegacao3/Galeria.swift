@@ -27,7 +27,7 @@ struct Galeria: View {
                         Image("teste")
                             .resizable()
                             .frame(width: 60, height: 60, alignment:  .center)
-                        Text("Escolha um álbum para \(pixelArtViewModel.nav.salvandoEmAlbum!.name)").font(.callout)
+                        Text("Escolha um álbum para esse desenho").font(.callout)
                     }
                     .padding(.top)
                     
@@ -42,7 +42,12 @@ struct Galeria: View {
                         Button(action: { pixelArtViewModel.newAlbum() }) {
                             Text("Salvar")
                         }
-                        Button(action: { withAnimation { pixelArtViewModel.nav.criandoAlbum = false } }) {
+                        Button(action: {
+                            withAnimation {
+                                pixelArtViewModel.nav.criandoAlbum = false
+                                pixelArtViewModel.nav.nomeAlbum = ""
+                            }
+                        }) {
                             Text("Cancelar")
                                 .foregroundColor(Color.red)
                         }
@@ -63,8 +68,9 @@ struct Galeria: View {
                         
                         if (pixelArtViewModel.nav.salvandoEmAlbum != nil && !pixelArtViewModel.nav.criandoAlbum) {
                             VStack(alignment: .leading) {
-                                Image("teste")
-                                Text("Novo Álbum")
+                                Image("novoAlbum").resizable()
+                                    .frame(minWidth: 150, idealWidth: 150, maxWidth: 150, minHeight: 150, idealHeight: 150, maxHeight: 150, alignment: .center)
+                                Text("Novo Álbum...")
                                 
                             }
                                 .padding()
@@ -79,7 +85,10 @@ struct Galeria: View {
                         ForEach(pixelArtViewModel.nav.albuns) { item in
                             
                             VStack(alignment: .leading) {
-                                Image("teste")
+                                Image(uiImage: item.image ?? UIImage(imageLiteralResourceName: "teste")).resizable()
+                                    .frame(minWidth: 150, idealWidth: 150, maxWidth: 150, minHeight: 150, idealHeight: 150, maxHeight: 150, alignment: .center)
+//                                Image(uiImage: item.image ?? UIImage(imageLiteralResourceName: "teste")).resizable()
+//                                    .frame(width: 150, height: 150, alignment: .center)
                                 Text(item.name)
                                 
                             }
@@ -92,7 +101,7 @@ struct Galeria: View {
                                     HStack{
                                         Text("Excluir Album")
                                         Spacer()
-                                        Image(systemName: "Trash")
+                                        Image(systemName: "trash")
                                     }
                                 }
                             }
@@ -123,7 +132,7 @@ struct Galeria: View {
             LazyVGrid(columns: columns, spacing: 0) {
                 
                 ForEach(data) { item in
-                    Image("teste").resizable()
+                    Image(uiImage: (item.image ?? UIImage(contentsOfFile: "teste"))!).resizable()
                         .aspectRatio(1, contentMode: .fill)
                         .contextMenu{
                             ContMenu(pixelArt: item)

@@ -59,11 +59,32 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             scaledGridView.drawHierarchy(in: scaledGridView.bounds, afterScreenUpdates: true)
         }
         
+        _ = saveImage(image: image)
+        
         let share = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
         present(share, animated: true, completion: nil)
         
         scaledGridView.removeFromSuperview()
+    }
+    
+    func saveImage(image: UIImage) -> Bool {
+        guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
+            return false
+        }
+
+        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+            return false
+        }
+
+        do {
+            let str = "draw_\(UUID())"
+            try data.write(to: directory.appendingPathComponent("\(str).png")!)
+            return true
+        } catch {
+            print(error.localizedDescription)
+            return false
+        }
     }
     
     /*Scales the view and everything in it*/
