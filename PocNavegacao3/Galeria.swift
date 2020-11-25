@@ -24,7 +24,7 @@ struct Galeria: View {
                 
                 if (pixelArtViewModel.nav.salvandoEmAlbum != nil) {
                     HStack{
-                        Image("teste")
+                        Image(uiImage: pixelArtViewModel.nav.salvandoEmAlbum?.image ?? UIImage(imageLiteralResourceName: "teste"))
                             .resizable()
                             .frame(width: 60, height: 60, alignment:  .center)
                         Text("Escolha um álbum para esse desenho").font(.callout)
