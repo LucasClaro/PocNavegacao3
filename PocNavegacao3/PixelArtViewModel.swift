@@ -62,6 +62,7 @@ class PixelArtViewModel : ObservableObject {
     
     @Published var nav = Navegacao()
     
+
     init() {
         fetch()
     }
@@ -157,6 +158,7 @@ class PixelArtViewModel : ObservableObject {
         return nil
     }
     
+
     
     //MARK: Intents
     

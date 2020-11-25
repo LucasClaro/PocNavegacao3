@@ -15,6 +15,7 @@ struct PixelArt: Identifiable{
     //var matriz = [[CGFloat]]()
     var imageName: String
     var image: UIImage?
+
     
     var album: Album.ID?
 
