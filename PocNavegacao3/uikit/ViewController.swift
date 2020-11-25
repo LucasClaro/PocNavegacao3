@@ -43,6 +43,27 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return gridView
     }
     
+    func saveImage(image: UIImage) -> Bool {
+            guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
+                return false
+            }
+            
+            guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+                return false
+            }
+            
+            do {
+                var str = "draw_\(Date())"
+                let range = str.index(str.endIndex, offsetBy: -6)..<str.endIndex
+                str.removeSubrange(range)
+                try data.write(to: directory.appendingPathComponent("\(str.replacingOccurrences(of: " ", with: "_")).png")!)
+                return true
+            } catch {
+                print(error.localizedDescription)
+                return false
+            }
+        }
+    
     //MARK: Export Functions
     /*copy the grid's view, remove it's borders, rescale it and then pops up a share sheet to export it*/
     @IBAction func export(_ sender: Any) {
