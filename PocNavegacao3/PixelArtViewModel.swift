@@ -161,15 +161,6 @@ class PixelArtViewModel : ObservableObject {
     //MARK: Intents
     
     func createFakeData(){
-//        let album = Album(name: "Paisagens")
-//        nav.albuns.append(album)
-//        let pixelart = PixelArt(name: "Desenho")
-//        nav.pixelArts.append(pixelart)
-//        var pixelart2 = PixelArt(name: "Paisagem")
-//        pixelart2.album = album.id
-//        nav.pixelArts.append(pixelart2)
-//        let pixelart3 = PixelArt(name: "Teste")
-//        nav.pixelArts.append(pixelart3)
         fetch()
     }
     
@@ -194,8 +185,6 @@ class PixelArtViewModel : ObservableObject {
         } else {
             
             // Senão, remove o álbum da pixelArt selecionada
-            guard let index = nav.pixelArts.firstIndex(matching: pixelArt) else { return }
-            nav.pixelArts[index].album = nil
             
             do {
                 guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
@@ -232,12 +221,6 @@ class PixelArtViewModel : ObservableObject {
         if nav.nomeAlbum != "" {
             let al = Album(name: nav.nomeAlbum, imageName: nav.salvandoEmAlbum!.imageName, image: nav.salvandoEmAlbum?.image)
             
-            guard let index = nav.pixelArts.firstIndex(matching: nav.salvandoEmAlbum!) else { return }
-            nav.pixelArts[index].album = al.id
-            
-            nav.albuns.append(al)
-            
-            
             let img = nav.salvandoEmAlbum?.image
             
             saveImageAlbum(image: img!, album: al)
@@ -254,9 +237,6 @@ class PixelArtViewModel : ObservableObject {
     
     func touchAlbum(album: Album) {
         if nav.salvandoEmAlbum != nil {
-            
-            guard let index = nav.pixelArts.firstIndex(matching: nav.salvandoEmAlbum!) else { return }
-            nav.pixelArts[index].album = album.id
             
             salvarPxNoAlbum(album: album)
         }
@@ -294,15 +274,6 @@ class PixelArtViewModel : ObservableObject {
     }
     
     func DeleteAlbum(album : Album) {
-        guard let index = nav.albuns.firstIndex(matching: album) else { return }
-        
-        let PXs = nav.pixelArts.filter {$0.album == album.id}
-        
-        for px in PXs {
-//            guard let i = nav.pixelArts.firstIndex(matching: px) else { return }
-//            nav.pixelArts[i].album = nil
-            saveOrRemoveFromAlbum(pixelArt: px)
-        }
         
         do{
             guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
@@ -315,7 +286,7 @@ class PixelArtViewModel : ObservableObject {
             print(error)
         }
         
-        nav.albuns.remove(at: index)
+        
         fetch()
     }
     
