@@ -45,10 +45,15 @@ struct Home: View {
                 LazyVGrid(columns: columns, spacing: 0) {
                     
                     ForEach(pixelArtViewModel.nav.pixelArts) { item in
-                        Image("teste").resizable()
+                        Image(uiImage: item.image!).resizable()
                             .aspectRatio(1, contentMode: .fill)
                             .contextMenu{
                                 ContMenu(pixelArt: item)
+                            }
+                            .alert(isPresented: $pixelArtViewModel.nav.confirmandoDelete) {
+                                Alert(title: Text("Deseja mesmo deletar?"), message: Text("Essa operação não poderá ser disfeita"), primaryButton: .cancel(), secondaryButton: .destructive(Text("Confirmar"), action: {
+                                        pixelArtViewModel.deletePX(px: item)
+                                }))
                             }
                     }
                     

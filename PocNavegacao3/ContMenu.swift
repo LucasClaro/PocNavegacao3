@@ -14,10 +14,7 @@ struct ContMenu: View {
     var pixelArt: PixelArt
     
     var body: some View {
-        Group{
-            
-            Text(pixelArt.name)
-            
+        Group{            
             Button(action: { pixelArtViewModel.saveOrRemoveFromAlbum(pixelArt: pixelArt) }) {
                 HStack{
                     if (pixelArtViewModel.nav.tabSelecionada == Tab.home) {
@@ -54,13 +51,17 @@ struct ContMenu: View {
                 }
             }
             
-            Button(action: {}) {
+            Button(action: {
+                pixelArtViewModel.nav.confirmandoDelete = true
+                
+            }) {
                 HStack{
                     Text("Excluir")
                     Spacer()
                     Image(systemName: "trash")
                 }
             }
+
         }
     }
 }
