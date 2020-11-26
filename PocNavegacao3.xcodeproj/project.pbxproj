@@ -19,9 +19,7 @@
 		B61D9D9C2551F40400EF6167 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61D9D9B2551F40400EF6167 /* Assets.xcassets */; };
 		B61D9D9F2551F40400EF6167 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61D9D9E2551F40400EF6167 /* Preview Assets.xcassets */; };
 		B68339D6256C2DC600C1AF90 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68339CD256C2DC500C1AF90 /* GridView.swift */; };
-		B68339D7256C2DC600C1AF90 /* contextMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B68339CE256C2DC500C1AF90 /* contextMenu.xib */; };
 		B68339D9256C2DC600C1AF90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68339D0256C2DC500C1AF90 /* ViewController.swift */; };
-		B68339DA256C2DC600C1AF90 /* ColorMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68339D1256C2DC500C1AF90 /* ColorMenu.swift */; };
 		B68339DB256C2DC600C1AF90 /* grid.xib in Resources */ = {isa = PBXBuildFile; fileRef = B68339D2256C2DC500C1AF90 /* grid.xib */; };
 		B68339DC256C2DC600C1AF90 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68339D3256C2DC500C1AF90 /* UIViewExtension.swift */; };
 		B68339E1256C2EA500C1AF90 /* CustomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68339E0256C2EA500C1AF90 /* CustomController.swift */; };
@@ -43,9 +41,7 @@
 		B61D9D9E2551F40400EF6167 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B61D9DA02551F40400EF6167 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B68339CD256C2DC500C1AF90 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
-		B68339CE256C2DC500C1AF90 /* contextMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = contextMenu.xib; sourceTree = "<group>"; };
 		B68339D0256C2DC500C1AF90 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B68339D1256C2DC500C1AF90 /* ColorMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorMenu.swift; sourceTree = "<group>"; };
 		B68339D2256C2DC500C1AF90 /* grid.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = grid.xib; sourceTree = "<group>"; };
 		B68339D3256C2DC500C1AF90 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		B68339E0256C2EA500C1AF90 /* CustomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomController.swift; sourceTree = "<group>"; };
@@ -111,8 +107,6 @@
 		B68339CB256C2D9300C1AF90 /* uikit */ = {
 			isa = PBXGroup;
 			children = (
-				B68339D1256C2DC500C1AF90 /* ColorMenu.swift */,
-				B68339CE256C2DC500C1AF90 /* contextMenu.xib */,
 				B68339D2256C2DC500C1AF90 /* grid.xib */,
 				B68339CD256C2DC500C1AF90 /* GridView.swift */,
 				B68339F02570215100C1AF90 /* Main.storyboard */,
@@ -182,7 +176,6 @@
 				B68339DB256C2DC600C1AF90 /* grid.xib in Resources */,
 				B68339F12570215100C1AF90 /* Main.storyboard in Resources */,
 				B61D9D9F2551F40400EF6167 /* Preview Assets.xcassets in Resources */,
-				B68339D7256C2DC600C1AF90 /* contextMenu.xib in Resources */,
 				B61D9D9C2551F40400EF6167 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,7 +190,6 @@
 				B68339DC256C2DC600C1AF90 /* UIViewExtension.swift in Sources */,
 				B68339E1256C2EA500C1AF90 /* CustomController.swift in Sources */,
 				B61544862559DE59008019D7 /* IfViewModifier.swift in Sources */,
-				B68339DA256C2DC600C1AF90 /* ColorMenu.swift in Sources */,
 				B61D9D9A2551F40200EF6167 /* ContentView.swift in Sources */,
 				B615446B25532F0D008019D7 /* PixelArtModel.swift in Sources */,
 				B68339D6256C2DC600C1AF90 /* GridView.swift in Sources */,
