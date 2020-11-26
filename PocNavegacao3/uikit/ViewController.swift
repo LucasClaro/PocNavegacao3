@@ -43,6 +43,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return gridView
     }
     
+<<<<<<< Updated upstream
     
 =======
 >>>>>>> Stashed changes
