@@ -11,30 +11,18 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var colorMenu: ColorMenu!
     @IBOutlet weak var colorBttn: UIButton!
-    @IBOutlet weak var dropperBttn: UIButton!
-    @IBOutlet weak var lastColorBttn0: UIButton!
-    @IBOutlet weak var lastColorBttn1: UIButton!
-    @IBOutlet weak var lastColorBttn2: UIButton!
-    @IBOutlet weak var lastColorBttn3: UIButton!
-    @IBOutlet weak var lastColorBttn4: UIButton!
-    @IBOutlet weak var lastColorBttn5: UIButton!
-    @IBOutlet weak var lastColorBttn6: UIButton!
-    @IBOutlet weak var lastColorBttn7: UIButton!
-    @IBOutlet weak var lastColorBttn8: UIButton!
-    @IBOutlet weak var lastColorBttn9: UIButton!
-    
+    let colorPicker = UIColorPickerViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        colorPicker.delegate = self
         scrollView.delegate = self
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 5.0
         scrollView.zoomScale = 1
         scrollView.panGestureRecognizer.minimumNumberOfTouches = 2
-        
         
         gridView.isUserInteractionEnabled = true
     }
@@ -43,10 +31,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return gridView
     }
     
-<<<<<<< Updated upstream
-    
-=======
->>>>>>> Stashed changes
     //MARK: Export Functions
     /*copy the grid's view, remove it's borders, rescale it and then pops up a share sheet to export it*/
     @IBAction func export(_ sender: Any) {
@@ -63,32 +47,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             scaledGridView.drawHierarchy(in: scaledGridView.bounds, afterScreenUpdates: true)
         }
         
-        _ = saveImage(image: image)
-        
         let share = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
         present(share, animated: true, completion: nil)
         
         scaledGridView.removeFromSuperview()
-    }
-    
-    func saveImage(image: UIImage) -> Bool {
-        guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
-            return false
-        }
-
-        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
-            return false
-        }
-
-        do {
-            let str = "draw_\(UUID())"
-            try data.write(to: directory.appendingPathComponent("\(str).png")!)
-            return true
-        } catch {
-            print(error.localizedDescription)
-            return false
-        }
     }
     
     /*Scales the view and everything in it*/
@@ -120,27 +83,15 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return hdView
     }
     
-    func refreshLastColors(){
-        lastColorBttn0.backgroundColor = colors[0]
-        lastColorBttn1.backgroundColor = colors[1]
-        lastColorBttn2.backgroundColor = colors[2]
-        lastColorBttn3.backgroundColor = colors[3]
-        lastColorBttn4.backgroundColor = colors[4]
-        lastColorBttn5.backgroundColor = colors[5]
-        lastColorBttn6.backgroundColor = colors[6]
-        lastColorBttn7.backgroundColor = colors[7]
-        lastColorBttn8.backgroundColor = colors[8]
-        lastColorBttn9.backgroundColor = colors[9]
-        lastColorChanged = false
+    private func selectColor(){
+        colorPicker.supportsAlpha = true
+        colorPicker.selectedColor = color
+        present(colorPicker, animated: true)
     }
-    
-    
+
     //MARK: IBActions!
     @IBAction func pen(_ sender: Any) {
         tool = .pen
-        if lastColorChanged == true{
-            refreshLastColors()
-        }
         gridView.awakeFromNib()
     }
     
@@ -152,73 +103,46 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func line(_ sender: Any) {
         tool = .line
-        if lastColorChanged == true{
-            refreshLastColors()
-        }
         gridView.awakeFromNib()
     }
     
     @IBAction func bucket(_ sender: Any) {
         tool = .bucket
-        if lastColorChanged == true{
-            refreshLastColors()
-        }
         gridView.awakeFromNib()
     }
     
-    @IBAction func colorBttn(_ sender: Any) {
-        
-        if colorMenu.isHidden == true{
-            colorMenu.isHidden = false
-        }
-        
-        else if colorMenu.isHidden == false{
-            colorMenu.changeLastColors(newColor: color)
-            colorMenu.isHidden = true
-        }
-        
-        colorMenu.layer.borderColor = color.cgColor
-        colorMenu.layer.borderWidth = 0.5
-        refreshLastColors()
-       
+    @IBAction func colorBttn(_ sender: UIButton) {
+       selectColor()
     }
     
     @IBAction func symmetryY(_ sender: Any) {
         tool = .symmetryY
-        if lastColorChanged == true{
-            refreshLastColors()
-        }
         gridView.awakeFromNib()
     }
     
     @IBAction func symmetryX(_ sender: Any) {
         tool = .symmetryX
-        if lastColorChanged == true{
-            refreshLastColors()
-        }
         gridView.awakeFromNib()
     }
     
     @IBAction func symmetryXY(_ sender: Any) {
         tool = .symmetryXY
-        if lastColorChanged == true{
-            refreshLastColors()
-        }
         gridView.awakeFromNib()
         
     }
     @IBAction func undo(_ sender: Any) {
         gridView.undoAction()
     }
-    @IBAction func dropperBttn(_ sender: UIButton) {
-        tool = .dropper
-    }
+
     @IBAction func redo(_ sender: Any) {
         gridView.redoAction()
     }
     
-    @IBAction func lastColorBttn(_ sender: UIButton) {
-        color = colors[sender.tag]
+}
+
+extension ViewController: UIColorPickerViewControllerDelegate{
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        color = viewController.selectedColor
     }
 }
 

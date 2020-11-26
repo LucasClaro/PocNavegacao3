@@ -15,7 +15,7 @@ var corFundo: UIColor! = .clear
 
 var hexCode = String()
 var hexStrings = ["00", "00", "00"]
-let colorMenu = ColorMenu()
+
 
 var isPanGestureRecognizerActive: Bool?
 
@@ -27,7 +27,6 @@ enum Tool {
     case symmetryY
     case symmetryX
     case symmetryXY
-    case dropper
 }
 
 var tool: Tool = .pen
@@ -100,7 +99,6 @@ class GridView: UIView, UIGestureRecognizerDelegate {
         contentView.layer.borderWidth = 0.4
         contentView.layer.borderColor = UIColor.black.cgColor
         
-        
         initGrid()
     }
     
@@ -130,7 +128,6 @@ class GridView: UIView, UIGestureRecognizerDelegate {
     
     @objc func handleTouch(gesture: UIPanGestureRecognizer) {
         let location = gesture.location(in: contentView)
-        //print(location)
         
         let width = contentView.frame.width / CGFloat(numViewPerRow)
         
@@ -189,9 +186,6 @@ class GridView: UIView, UIGestureRecognizerDelegate {
 
         case .symmetryXY:
             doSymmetry(i: i, j: j)
-        
-        case .dropper:
-           dropNewColor(i: i, j: j)
         }
     }
     
@@ -289,9 +283,7 @@ class GridView: UIView, UIGestureRecognizerDelegate {
     func doLine(x1: Int, x2: Int, y1: Int, y2: Int){
         let dx = x2 - x1
         let dy = y2 - y1
-//        if color == nil{
-//            color = .black
-//        }
+
         
         if x1 == x2 && y1 == y2{
             let ident = "\(x1 + 1)|\(y1 + 1)"
@@ -325,15 +317,11 @@ class GridView: UIView, UIGestureRecognizerDelegate {
             b = (Float(a) / Float(dx)) * Float(dy)
             y = lineBreak(x: x, x1: x1, x2: x2, y1: y1, f: f, g: g, dy: dy, b: b)
             
-            if h == 0{  
+            if h == 0{
                 ident = "\(x + 1)|\(y + 1)"
             } else {
                 ident = "\(y + 1)|\(x + 1)"
             }
-
-//            if color == nil{
-//                color = .black
-//            }
             
             let cellView = cells[ident]
             cellView?.backgroundColor = color
@@ -399,9 +387,6 @@ class GridView: UIView, UIGestureRecognizerDelegate {
         case .symmetryXY:
             return
             
-        case .dropper:
-            return
-            
         case .none:
             return
         }
@@ -441,10 +426,7 @@ class GridView: UIView, UIGestureRecognizerDelegate {
             
         case .symmetryXY:
             return
-            
-        case .dropper:
-            return
-            
+          
         case .none:
             return
         }
@@ -466,17 +448,7 @@ class GridView: UIView, UIGestureRecognizerDelegate {
             generator.impactOccurred(intensity: 0.7)
         case .symmetryXY:
             generator.impactOccurred(intensity: 0.7)
-        case .dropper:
-            return
         }
-    }
-        
-    func dropNewColor(i: Int, j: Int){
-        let ident = "\(i + 1)|\(j + 1)"
-        let pixel = cells[ident]
-    
-        color = pixel?.backgroundColor ?? .black
-        colorMenu.changeLastColors(newColor: color)
     }
     
 }
