@@ -31,6 +31,25 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return gridView
     }
     
+    func saveImage(image: UIImage) -> Bool {
+            guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
+                return false
+            }
+
+            guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+                return false
+            }
+
+            do {
+                let str = "draw_\(UUID())"
+                try data.write(to: directory.appendingPathComponent("\(str).png")!)
+                return true
+            } catch {
+                print(error.localizedDescription)
+                return false
+            }
+        }
+    
     //MARK: Export Functions
     /*copy the grid's view, remove it's borders, rescale it and then pops up a share sheet to export it*/
     @IBAction func export(_ sender: Any) {
@@ -46,6 +65,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let image = renderer.image { ctx in
             scaledGridView.drawHierarchy(in: scaledGridView.bounds, afterScreenUpdates: true)
         }
+        
+        _ = saveImage(image: image)
         
         let share = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
