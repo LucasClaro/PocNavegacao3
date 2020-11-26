@@ -44,6 +44,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
+=======
+>>>>>>> Stashed changes
     //MARK: Export Functions
     /*copy the grid's view, remove it's borders, rescale it and then pops up a share sheet to export it*/
     @IBAction func export(_ sender: Any) {
