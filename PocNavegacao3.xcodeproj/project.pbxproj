@@ -24,7 +24,7 @@
 		B68339DC256C2DC600C1AF90 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68339D3256C2DC500C1AF90 /* UIViewExtension.swift */; };
 		B68339E1256C2EA500C1AF90 /* CustomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68339E0256C2EA500C1AF90 /* CustomController.swift */; };
 		B68339F12570215100C1AF90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B68339F02570215100C1AF90 /* Main.storyboard */; };
-		B6833A2125718EF400C1AF90 /* launchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6833A2025718EF400C1AF90 /* launchScreen.swift */; };
+		B6833A2125718EF400C1AF90 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6833A2025718EF400C1AF90 /* LaunchScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +47,7 @@
 		B68339D3256C2DC500C1AF90 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		B68339E0256C2EA500C1AF90 /* CustomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomController.swift; sourceTree = "<group>"; };
 		B68339F02570215100C1AF90 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		B6833A2025718EF400C1AF90 /* launchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = launchScreen.swift; sourceTree = "<group>"; };
+		B6833A2025718EF400C1AF90 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,7 @@
 				B615447F2555E6AB008019D7 /* Galeria.swift */,
 				B6154489255B216F008019D7 /* ContMenu.swift */,
 				B68339E0256C2EA500C1AF90 /* CustomController.swift */,
-				B6833A2025718EF400C1AF90 /* launchScreen.swift */,
+				B6833A2025718EF400C1AF90 /* LaunchScreen.swift */,
 				B61D9D9B2551F40400EF6167 /* Assets.xcassets */,
 				B61D9DA02551F40400EF6167 /* Info.plist */,
 				B61D9D9D2551F40400EF6167 /* Preview Content */,
@@ -192,7 +192,7 @@
 			files = (
 				B68339DC256C2DC600C1AF90 /* UIViewExtension.swift in Sources */,
 				B68339E1256C2EA500C1AF90 /* CustomController.swift in Sources */,
-				B6833A2125718EF400C1AF90 /* launchScreen.swift in Sources */,
+				B6833A2125718EF400C1AF90 /* LaunchScreen.swift in Sources */,
 				B61544862559DE59008019D7 /* IfViewModifier.swift in Sources */,
 				B61D9D9A2551F40200EF6167 /* ContentView.swift in Sources */,
 				B615446B25532F0D008019D7 /* PixelArtModel.swift in Sources */,
