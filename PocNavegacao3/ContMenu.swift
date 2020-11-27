@@ -52,7 +52,7 @@ struct ContMenu: View {
             }
             
             Button(action: {
-                pixelArtViewModel.nav.confirmandoDelete = true
+                pixelArtViewModel.deletePX(px: pixelArt)
                 
             }) {
                 HStack{

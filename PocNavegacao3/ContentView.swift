@@ -49,21 +49,19 @@ struct ContentView: View {
                                     .font(.title)
                             },
                             trailing:
-                                Button(action:  {
-                                    print("oi")
-                                    pixelArtViewModel.createFakeData()
-                                }) {
-                                    Image(systemName: "plus")
-                                        .font(.title)
-                                }
+                                AddButton(destination: CustomController().onDisappear(perform: {
+                                    pixelArtViewModel.nav.fetch()
+                                }))
                         )
                 }
                 .if(pixelArtViewModel.nav.AlbumAberto == nil) {
                     $0
-                        .navigationBarTitle("")
+                        .navigationBarTitle(pixelArtViewModel.nav.tabSelecionada == .home ? "Seus Desenhos" : "Álbuns")
                         .navigationBarTitleDisplayMode(.automatic)
                         .navigationBarItems(trailing:
-                            AddButton(destination: CustomController())
+                            AddButton(destination: CustomController().onDisappear(perform: {
+                                pixelArtViewModel.nav.fetch()
+                            }))
                         )
                 }
         }
@@ -75,11 +73,12 @@ struct ContentView: View {
         var destination : Destination
         
         var body: some View {
-            NavigationLink(destination: self.destination) {
+            NavigationLink(destination: destination) {
                 Image(systemName: "plus").font(.title)
             }
         }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
